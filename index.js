@@ -1,11 +1,13 @@
-const fs = require("fs");
+const cors = require("cors")
 const express = require("express");
+const fs = require("fs");
 
 const app = express();
 
 const port = 8000;
 
 app.use(express.json());
+app.use(cors())
 
 const getData = () => {
   const data = fs.readFileSync("data.json");
