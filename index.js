@@ -6,7 +6,7 @@ const app = express();
 const port = 8000;
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 const getData = () => {
   const data = fs.readFileSync("data.json");
@@ -33,17 +33,25 @@ app.post("/member", (req, res) => {
   const data = getData();
 
   try {
-    const { id, name, discord_tag, team, role, year } = req.body;
-    if (!id || !name || !discord_tag || !team || !role || !year) {
+    const { name, discord_tag, team, role, year } = req.body;
+    if (!name || !discord_tag || !team || !role || !year) {
       throw "Missing parameter for adding a new member!";
     }
 
-    const intID = parseInt(id);
-    if (data.hasOwnProperty(intID)) {
-      throw "Member already exists!";
+    for (const member of data) {
+      if (member.name === name || member.discord_tag === discord_tag) {
+        throw "Member already exists!";
+      }
     }
 
-    data[intID] = {
+    const latestID = Object.keys(data).length;
+
+    while (data.hasOwnProperty(latestID.toString())) {
+      latestID++;
+    }
+
+    data[latestID] = {
+      id: latestID,
       name: name,
       discord_tag: discord_tag,
       team: team,
@@ -74,6 +82,7 @@ app.put("/member", (req, res) => {
     }
 
     data[intID] = {
+      id: intID,
       name: name,
       discord_tag: discord_tag,
       team: team,
@@ -94,7 +103,7 @@ app.delete("/member", (req, res) => {
 
   try {
     const { id } = req.body;
-    if (!id) {
+    if (id === null) {
       throw "Missing parameter for deleting member!";
     }
 
@@ -112,7 +121,6 @@ app.delete("/member", (req, res) => {
     res.status(400).send(`Invalid request: ${e}`);
   }
 });
-
 
 app.listen(port, () => {
   `Server listening on port ${port}!`;
