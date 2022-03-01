@@ -16,11 +16,11 @@ function App() {
 
   return (
     <div className="App">
-      <div className="title">CSESoc Projects 2022</div>
+      <div className="title" onClick={ () => window.location = "/"}>CSESoc Projects 2022</div>
           <BrowserRouter>
           <Routes> 
             <Route path="/" exact element={ <Home memberList={members}/>} />
-            <Route path="/member/:id" exact element={ <Member info={members}/>} /> 
+            <Route path="/member/:id" exact element={ <Member memberList={members}/>} /> 
             <Route path="/member/:id/create" exact element={ <MemberCreate />} /> 
             <Route path="/member/:id/edit" exact element={ <MemberEdit />} /> 
           </Routes>

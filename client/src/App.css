@@ -9,6 +9,10 @@
   font-size: 2em;
 }
 
+.title:hover {
+  cursor: pointer;
+}
+
 .subtitle {
   font-size: 1.5em;
   margin-bottom: 1.5vh;
@@ -16,13 +20,20 @@
 
 .members {
   font-family: "Nunito Sans", sans-serif;
+  display: flex;
+  width: 100%;
+  justify-content: left;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .card {
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.1);
-  background: linear-gradient(to right, rgb(255, 207, 134), rgb(255, 233, 200));
+  background: linear-gradient(to right, rgb(255, 223, 176), rgb(255, 233, 200));
   width: 20%;
   padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
   display: flex;
   background-color: blanchedalmond;
   border-radius: 5px;

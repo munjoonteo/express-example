@@ -1,7 +1,11 @@
 import React from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-const Home = ({ memberList }) => {
+import '../App.css';
 
+const Home = ({ memberList }) => {
+    const getIdByValue = (obj, value) => {
+      return Object.keys(obj).find(id => obj[id] === value);
+    }
     return (
         <>  
         <div className="subtitle">Members</div>
@@ -9,8 +13,8 @@ const Home = ({ memberList }) => {
             {memberList &&
             Object.values(memberList).map(s => {
                 return (
-                <div className="card" onClick={() => window.location = "/member/" + s.discord_tag }>
-                <div className="member-box" key={s.discord_tag} >
+                <div className="card" key={s.discord_tag}  onClick={() => window.location = "/member/" + getIdByValue(memberList, s)}>
+                <div className="member-box" >
                     <div className="member-info"><span>Name: </span> {s.name}</div>
                     <div className="member-info"><span>Discord Tag:</span> {s.discord_tag}</div>
                     <div className="member-info"><span>Team: </span> {s.team}</div>

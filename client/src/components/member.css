@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Poppins:wght@500&display=swap");
+
+.individual-box {
+  margin-top: 40px;
+  padding-top: 0;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 40%;
+  height: 120px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to right, rgb(166, 72, 255), rgb(231, 151, 255));
+  border-radius: 25px;
+  font-family: "Nunito Sans", sans-serif;
+}
+.individual-info {
+  margin-left: 5%;
+  color: azure;
+}
