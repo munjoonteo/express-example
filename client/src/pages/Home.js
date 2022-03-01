@@ -9,9 +9,11 @@ const Home = ({ memberList, setMembers }) => {
   const getIdByValue = (obj, value) => {
     return Object.keys(obj).find(id => obj[id] === value);
   };
+  
   const deleteHandler = (s) => {
     MemberDeleteHandler(s.id);
     memberList(setMembers);
+    console.log(memberList);
   }
 
   return (
