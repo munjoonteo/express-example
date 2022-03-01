@@ -20,6 +20,7 @@
 
 .card {
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to right, rgb(255, 207, 134), rgb(255, 233, 200));
   width: 20%;
   padding: 10px;
   display: flex;
