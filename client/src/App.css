@@ -17,3 +17,18 @@
 .members {
   font-family: "Nunito Sans", sans-serif;
 }
+
+.card {
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.1);
+  width: 20%;
+  display: flex;
+  background-color: blanchedalmond;
+  border-radius: 5px;
+}
+.member-info {
+  margin-left: 20px;
+}
+.card:hover {
+  box-shadow: 0 12px 22px 0 rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}

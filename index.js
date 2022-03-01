@@ -1,9 +1,8 @@
-const cors = require("cors")
+const cors = require("cors");
 const express = require("express");
 const fs = require("fs");
 
 const app = express();
-
 const port = 8000;
 
 app.use(express.json());
@@ -11,13 +10,11 @@ app.use(cors())
 
 const getData = () => {
   const data = fs.readFileSync("data.json");
-
   return JSON.parse(data);
 };
 
 app.get("/members", (req, res) => {
   const data = getData();
-
   res.send(data);
 });
 
@@ -115,6 +112,7 @@ app.delete("/member", (req, res) => {
     res.status(400).send(`Invalid request: ${e}`);
   }
 });
+
 
 app.listen(port, () => {
   `Server listening on port ${port}!`;

@@ -18,6 +18,7 @@ function App() {
         {members &&
           Object.values(members).map(s => {
             return (
+              <div className="card" onClick={}>
               <div className="member-box" key={s.discord_tag}>
                 <div className="member-info">Name: {s.name}</div>
                 <div className="member-info">Discord Tag: {s.discord_tag}</div>
@@ -25,9 +26,19 @@ function App() {
                 <div className="member-info">Role: {s.role}</div>
                 <div className="member-info">Current year: {s.year}</div>
               </div>
+              </div>
             );
           })}
       </div>
+      <div className="routes">
+          <Routes> 
+            <Route path="/member/:id" exact element={ <Member />} /> 
+            <Route path="/member/:id/create" exact element={ <MemberCreate />} /> 
+            <Route path="/member/:id/edit" exact element={ <MemberEdit />} /> 
+          </Routes>
+      </div>
+
+
     </div>
   );
 }
