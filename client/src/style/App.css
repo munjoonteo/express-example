@@ -1,0 +1,62 @@
+.title,
+.subtitle {
+  font-family: "Poppins", sans-serif;
+}
+
+.title {
+  font-size: 2em;
+}
+
+.title:hover {
+  cursor: pointer;
+}
+
+.subtitle {
+  font-size: 1.5em;
+  margin: 1vh 0;
+}
+
+.members {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to right, rgb(255, 223, 118), rgb(233, 201, 162));
+  width: 20%;
+  padding: 2vh;
+  margin: 1vh 0 2vh;
+  border-radius: 15px;
+}
+
+.card:hover {
+  box-shadow: 0 12px 22px 0 rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.card-info {
+  padding: 1vh 0;
+  margin-left: 1vw;
+  font-size: 1.1em;
+}
+
+span {
+  font-weight: bolder;
+}
+
+button {
+  font-size: 1.5em;
+  border: none;
+  background: none;
+  text-align: right;
+}
+
+button:hover {
+  cursor: pointer;
+}
