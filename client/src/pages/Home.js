@@ -1,25 +1,18 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash,  faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import "../style/App.css";
+import MemberDeleteHandler from "../controller/memberDeleteHandler";
 
-const Home = ({ memberList }) => {
+const Home = ({ memberList, setMembers }) => {
   const getIdByValue = (obj, value) => {
     return Object.keys(obj).find(id => obj[id] === value);
   };
-
-  const handleDelete = id => {
-    const data = { id: id };
-
-    fetch("http://localhost:8000/member", {
-      headers: { "Content-Type": "application/json" },
-      method: "DELETE",
-      body: JSON.stringify(data),
-    }).catch(err => {
-      console.log(err);
-    });
-  };
+  const deleteHandler = (s) => {
+    MemberDeleteHandler(s.id);
+    memberList(setMembers);
+  }
 
   return (
     <>
@@ -51,12 +44,20 @@ const Home = ({ memberList }) => {
                     <span>Current Year: </span> {s.year}
                   </div>
                 </div>
-                <button onClick={() => handleDelete(s.id)}>
+                <button onClick={() => deleteHandler(s)}>
                   <FontAwesomeIcon icon={faTrash} />
                 </button>
+
+               
               </div>
             );
           })}
+          <div className="add-member-button">
+            <button>
+              <FontAwesomeIcon icon={faPlus} />
+            </button>
+          </div>
+          
       </div>
     </>
   );

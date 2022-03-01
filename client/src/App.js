@@ -7,15 +7,11 @@ import MemberEdit from "./pages/MemberEditForm";
 import Home from "./pages/Home";
 
 import "./style/App.css";
+import MemberListGetHandler from "./controller/memberListGetHandler";
 
 function App() {
   const [members, setMembers] = useState({});
-
-  useEffect(() => {
-    fetch("http://localhost:8000/members")
-      .then(res => res.json())
-      .then(data => setMembers(data));
-  }, []);
+  MemberListGetHandler(setMembers);
 
   return (
     <div className="App">
@@ -24,7 +20,7 @@ function App() {
       </div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={<Home memberList={members} />} />
+          <Route path="/" exact element={<Home memberList={members} setMembers={setMembers} />} />
           <Route
             path="/member/:id"
             exact

@@ -60,3 +60,10 @@ button {
 button:hover {
   cursor: pointer;
 }
+
+.add-member-button {
+  position: fixed;
+  bottom: 5%;
+  margin-left: 90%;
+  width: 100%;
+}
