@@ -6,6 +6,7 @@ const Home = ({ memberList }) => {
     const getIdByValue = (obj, value) => {
       return Object.keys(obj).find(id => obj[id] === value);
     }
+    
     return (
         <>  
         <div className="subtitle">Members</div>
@@ -13,6 +14,7 @@ const Home = ({ memberList }) => {
             {memberList &&
             Object.values(memberList).map(s => {
                 return (
+                
                 <div className="card" key={s.discord_tag}  onClick={() => window.location = "/member/" + getIdByValue(memberList, s)}>
                 <div className="member-box" >
                     <div className="member-info"><span>Name: </span> {s.name}</div>
@@ -22,10 +24,13 @@ const Home = ({ memberList }) => {
                     <div className="member-info"><span>Current Year: </span> {s.year}</div>
                 </div>
                 </div>
-            );
-          })}
+                
+              );
+            })
+            }
       </div>
     </>
+    
   );
 }
 
