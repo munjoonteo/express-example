@@ -21,9 +21,13 @@
 .card {
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.1);
   width: 20%;
+  padding: 10px;
   display: flex;
   background-color: blanchedalmond;
   border-radius: 5px;
+}
+span {
+  font-weight: bolder;
 }
 .member-info {
   margin-left: 20px;
