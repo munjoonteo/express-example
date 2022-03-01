@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Header from "../components/header";
 
 const MemberEdit = () => {
   return (
-    <div>MemberEdit</div>
-  )
-}
+    <>
+      <Header />
+      <div>MemberEdit</div>
+    </>
+  );
+};
 
-export default MemberEdit
+export default MemberEdit;

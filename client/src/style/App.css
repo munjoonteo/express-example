@@ -1,3 +1,14 @@
+.App {
+  height: 85vh;
+}
+
+.home-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .title,
 .subtitle {
   font-family: "Poppins", sans-serif;
@@ -20,7 +31,6 @@
   display: flex;
   width: 100%;
   justify-content: left;
-  flex-direction: row;
   flex-wrap: wrap;
 }
 
@@ -31,7 +41,7 @@
   background: linear-gradient(to right, rgb(255, 223, 118), rgb(233, 201, 162));
   width: 20%;
   padding: 2vh;
-  margin: 1vh 0 2vh;
+  margin: 1vh 1vw 2vh;
   border-radius: 15px;
 }
 
@@ -50,11 +60,22 @@ span {
   font-weight: bolder;
 }
 
-button {
+.delete {
   font-size: 1.5em;
   border: none;
   background: none;
   text-align: right;
+}
+
+.create {
+  font-size: 1.3em;
+  margin: 0 2vw 5vh 0;
+  align-self: flex-end;
+  padding: 2vh;
+  background-color: #ffbb00;
+  border-radius: 15px;
+  border: none;
+  font-weight: 600;
 }
 
 button:hover {

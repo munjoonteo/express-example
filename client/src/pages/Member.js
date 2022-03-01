@@ -1,10 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
+import Header from "../components/header";
+
 const Member = ({ memberList }) => {
   const member = memberList[useParams()["id"]];
   return member ? (
     <>
+      <Header />
       <div className="card">
         <div className="card-info">
           <span>Name: </span> {member.name}
