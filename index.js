@@ -38,7 +38,7 @@ app.post("/member", (req, res) => {
       throw "Missing parameter for adding a new member!";
     }
 
-    for (const member of data) {
+    for (const member of Object.values(data)) {
       if (member.name === name || member.discord_tag === discord_tag) {
         throw "Member already exists!";
       }
