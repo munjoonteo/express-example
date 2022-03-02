@@ -1,6 +1,7 @@
 import React from "react";
-import FormInput from "./FormInput";
 import { useParams } from "react-router-dom";
+
+import FormInput from "../components/FormInput";
 
 const MemberEditForm = ({ memberList }) => {
   const member = memberList[useParams()["id"]];

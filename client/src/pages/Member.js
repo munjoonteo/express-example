@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import Header from "../components/header";
+import Header from "../components/Header";
 
 const Member = ({ memberList }) => {
   const member = memberList[useParams()["id"]];
