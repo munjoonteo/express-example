@@ -5,6 +5,7 @@ import Header from "../components/Header";
 
 const Member = ({ memberList }) => {
   const member = memberList[useParams()["id"]];
+
   return member ? (
     <>
       <Header />
@@ -28,7 +29,7 @@ const Member = ({ memberList }) => {
       </div>
     </>
   ) : (
-    <></>
+    <div>This member does not exist!</div>
   );
 };
 

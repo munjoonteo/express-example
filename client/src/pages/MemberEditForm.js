@@ -1,24 +1,55 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
+import Header from "../components/Header";
 import FormInput from "../components/FormInput";
 
-const MemberEditForm = ({ memberList }) => {
-  const member = memberList[useParams()["id"]];
+const MemberEdit = ({ memberList }) => {
+  const id = useParams()["id"]
+  const member = memberList[id];
 
-  const template = (
+  const [name, setName] = useState(member.name);
+  const [discord_tag, setDiscordTag] = useState(member.discord_tag);
+  const [team, setTeam] = useState(member.team);
+  const [role, setRole] = useState(member.role);
+  const [year, setYear] = useState(member.year);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    const data = { id, name, discord_tag, team, role, year };
+
+    fetch("http://localhost:8000/member", {
+      headers: { "Content-Type": "application/json" },
+      method: "PUT",
+      body: JSON.stringify(data),
+    }).catch(err => {
+      console.log(err);
+    });
+
+    navigate("/");
+  };
+
+  return (
     <>
-      <form>
-        <FormInput placeHolder={member.name} />
-        <FormInput placeHolder={member.discord_tag} />
-        <FormInput placeHolder={member.team} />
-        <FormInput placeHolder={member.role} />
-        <FormInput placeHolder={member.year} />
+      <Header />
+      <div className="subtitle">Edit a Member's Details</div>
+      <form onSubmit={handleSubmit}>
+        <FormInput value={name} setter={setName} placeholder={"Name"} />
+        <FormInput
+          value={discord_tag}
+          setter={setDiscordTag}
+          placeholder={"Discord tag"}
+        />
+        <FormInput value={team} setter={setTeam} placeholder={"Team"} />
+        <FormInput value={role} setter={setRole} placeholder={"Role"} />
+        <FormInput value={year} setter={setYear} placeholder={"Year"} />
+        <input type="submit" className="create submit-text" value="Edit" />
       </form>
     </>
   );
-
-  return member ? template : <>This member does not exist!</>;
 };
 
-export default MemberEditForm;
+export default MemberEdit;

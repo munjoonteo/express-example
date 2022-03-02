@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faPlus, faPencil } from "@fortawesome/free-solid-svg-icons";
 
 import Header from "../components/Header";
 
@@ -18,8 +18,13 @@ const Home = ({ memberList }) => {
     navigate("/member/create");
   };
 
-  const handleDelete = s => {
-    const data = { id: s.id };
+  const handleEdit = (e, id) => {
+    e.stopPropagation();
+    navigate(`/member/${id}/edit`);
+  };
+
+  const handleDelete = id => {
+    const data = { id };
 
     fetch("http://localhost:8000/member", {
       headers: { "Content-Type": "application/json" },
@@ -61,12 +66,20 @@ const Home = ({ memberList }) => {
                         <span>Current Year: </span> {s.year}
                       </div>
                     </div>
-                    <button
-                      className="delete"
-                      onClick={() => handleDelete(s.id)}
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </button>
+                    <div className="card-buttons">
+                      <button
+                        className="edit"
+                        onClick={e => handleEdit(e, s.id)}
+                      >
+                        <FontAwesomeIcon icon={faPencil} />
+                      </button>
+                      <button
+                        className="delete"
+                        onClick={() => handleDelete(s.id)}
+                      >
+                        <FontAwesomeIcon icon={faTrash} />
+                      </button>
+                    </div>
                   </div>
                 </div>
               );

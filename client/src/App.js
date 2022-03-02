@@ -32,7 +32,11 @@ function App() {
             element={<Member memberList={members} />}
           />
           <Route path="/member/create" exact element={<MemberCreate />} />
-          <Route path="/member/:id/edit" exact element={<MemberEdit />} />
+          <Route
+            path="/member/:id/edit"
+            exact
+            element={<MemberEdit memberList={members} />}
+          />
         </Routes>
       </BrowserRouter>
     </div>

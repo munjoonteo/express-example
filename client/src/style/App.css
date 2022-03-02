@@ -41,7 +41,7 @@
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.1);
   background: linear-gradient(to right, rgb(255, 223, 118), rgb(233, 201, 162));
   padding: 2vh 1vw;
-  margin: 1vh 1vw 2vh;
+  margin: 1vh 3vw 2vh 0;
   border-radius: 15px;
 }
 
@@ -64,11 +64,29 @@ span {
   font-weight: bolder;
 }
 
-.delete {
+.card-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.delete,
+.edit {
   font-size: 1.5em;
   border: none;
   background: none;
   text-align: right;
+  margin: 0 0.2vw;
+}
+
+.delete:hover,
+.edit:hover {
+  padding: 0.2vw;
+  border: 3px solid black;
+  border-radius: 15px;
 }
 
 .create {
@@ -85,17 +103,13 @@ span {
   padding: 2vh;
 }
 
-.create-text {
+.submit-text {
   font-size: 1.1em;
   margin-top: 1vh;
   padding: 1vh;
   width: 15vw;
 }
 
-button:hover {
-  cursor: pointer;
-}
-
-.create-text:hover {
+.submit-text:hover {
   cursor: pointer;
 }

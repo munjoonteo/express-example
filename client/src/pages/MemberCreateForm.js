@@ -44,7 +44,7 @@ const MemberCreate = () => {
         <FormInput value={team} setter={setTeam} placeholder={"Team"} />
         <FormInput value={role} setter={setRole} placeholder={"Role"} />
         <FormInput value={year} setter={setYear} placeholder={"Year"} />
-        <input type="submit" className="create create-text" value="Create" />
+        <input type="submit" className="create submit-text" value="Create" />
       </form>
     </>
   );
