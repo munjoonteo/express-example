@@ -1,13 +1,21 @@
 import React from "react";
-import Header from "../components/header";
+import FormInput from "./FormInput";
+import { useParams } from "react-router-dom";
 
-const MemberEdit = () => {
-  return (
+const MemberEditForm = ({ memberList }) => {
+  const member = memberList[useParams()["id"]];
+  const template = (
     <>
-      <Header />
-      <div>MemberEdit</div>
+      <form>
+        <FormInput placeHolder={member.name} />
+        <FormInput placeHolder={member.discord_tag} />
+        <FormInput placeHolder={member.team} />
+        <FormInput placeHolder={member.role} />
+        <FormInput placeHolder={member.year} />
+      </form>
     </>
   );
+  return member ? template : <></>;
 };
 
-export default MemberEdit;
+export default MemberEditForm;

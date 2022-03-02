@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import Header from "../components/header";
 
@@ -18,8 +18,8 @@ const Home = ({ memberList }) => {
     navigate("/member/create");
   };
 
-  const handleDelete = id => {
-    const data = { id: id };
+  const deleteHandler = s => {
+    const data = { id: s.id };
 
     fetch("http://localhost:8000/member", {
       headers: { "Content-Type": "application/json" },
@@ -28,6 +28,8 @@ const Home = ({ memberList }) => {
     }).catch(err => {
       console.log(err);
     });
+
+    navigate("/");
   };
 
   return (
@@ -39,39 +41,49 @@ const Home = ({ memberList }) => {
           {memberList &&
             Object.values(memberList).map(s => {
               return (
-                <div
-                  className="card"
-                  key={s.id}
-                  onClick={() => showMemberPage(s.id)}
-                >
-                  <div>
-                    <div className="card-info">
-                      <span>Name: </span> {s.name}
+                <div>
+                  <div
+                    className="card"
+                    key={s.id}
+                    onClick={() => showMemberPage(s.id)}
+                  >
+                    <div>
+                      <div className="card-info">
+                        <span>Name: </span> {s.name}
+                      </div>
+                      <div className="card-info">
+                        <span>Discord Tag:</span> {s.discord_tag}
+                      </div>
+                      <div className="card-info">
+                        <span>Team: </span> {s.team}
+                      </div>
+                      <div className="card-info">
+                        <span>Role: </span>
+                        {s.role}
+                      </div>
+                      <div className="card-info">
+                        <span>Current Year: </span> {s.year}
+                      </div>
                     </div>
-                    <div className="card-info">
-                      <span>Discord Tag:</span> {s.discord_tag}
-                    </div>
-                    <div className="card-info">
-                      <span>Team: </span> {s.team}
-                    </div>
-                    <div className="card-info">
-                      <span>Role: </span>
-                      {s.role}
-                    </div>
-                    <div className="card-info">
-                      <span>Current Year: </span> {s.year}
-                    </div>
+                    <button
+                      className="delete"
+                      onClick={() => handleDelete(s.id)}
+                    >
+                      <FontAwesomeIcon icon={faTrash} />
+                    </button>
                   </div>
-                  <button className="delete" onClick={() => handleDelete(s.id)}>
+                  <button onClick={() => deleteHandler(s)}>
                     <FontAwesomeIcon icon={faTrash} />
                   </button>
                 </div>
               );
             })}
+          <div className="add-member-button">
+            <button>
+              <FontAwesomeIcon icon={faPlus} />
+            </button>
+          </div>
         </div>
-        <button className="create" onClick={showAddMemberPage}>
-          Add a new member
-        </button>
       </div>
     </>
   );

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import Home from "./pages/Home";
 import Member from "./pages/Member";
 import MemberCreate from "./pages/MemberCreateForm";
 import MemberEdit from "./pages/MemberEditForm";
-import Home from "./pages/Home";
 
 import "./style/App.css";
 
@@ -21,7 +21,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={<Home memberList={members} />} />
+          <Route
+            path="/"
+            exact
+            element={<Home memberList={members} setMembers={setMembers} />}
+          />
           <Route
             path="/member/:id"
             exact

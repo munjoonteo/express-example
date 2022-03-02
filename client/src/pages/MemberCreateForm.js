@@ -5,7 +5,7 @@ const MemberCreate = () => {
   return (
     <>
       <Header />
-      <div>MemberCreate</div>
+      <div className="subtitle">Create a New Member</div>
     </>
   );
 };
