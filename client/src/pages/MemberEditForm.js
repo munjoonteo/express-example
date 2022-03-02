@@ -5,6 +5,7 @@ import FormInput from "../components/FormInput";
 
 const MemberEditForm = ({ memberList }) => {
   const member = memberList[useParams()["id"]];
+
   const template = (
     <>
       <form>
@@ -16,7 +17,8 @@ const MemberEditForm = ({ memberList }) => {
       </form>
     </>
   );
-  return member ? template : <></>;
+
+  return member ? template : <>This member does not exist!</>;
 };
 
 export default MemberEditForm;

@@ -1,9 +1,16 @@
 import React from "react";
 
-const FormInput = props => {
+import "../style/Form.css";
+
+const FormInput = ({ value, setter, placeholder }) => {
   return (
-    <div className="form-input">
-      <input placeholder={props.placeholder} />
+    <div className="form-entry">
+      <label className="form-label">{placeholder}</label>
+      <input
+        className="form-input"
+        value={value}
+        onChange={e => setter(e.target.value)}
+      />
     </div>
   );
 };

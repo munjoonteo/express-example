@@ -8,7 +8,7 @@ const Member = ({ memberList }) => {
   return member ? (
     <>
       <Header />
-      <div className="card">
+      <div className="card-solo">
         <div className="card-info">
           <span>Name: </span> {member.name}
         </div>

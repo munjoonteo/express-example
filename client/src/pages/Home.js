@@ -18,7 +18,7 @@ const Home = ({ memberList }) => {
     navigate("/member/create");
   };
 
-  const deleteHandler = s => {
+  const handleDelete = s => {
     const data = { id: s.id };
 
     fetch("http://localhost:8000/member", {
@@ -41,12 +41,8 @@ const Home = ({ memberList }) => {
           {memberList &&
             Object.values(memberList).map(s => {
               return (
-                <div>
-                  <div
-                    className="card"
-                    key={s.id}
-                    onClick={() => showMemberPage(s.id)}
-                  >
+                <div key={s.id}>
+                  <div className="card" onClick={() => showMemberPage(s.id)}>
                     <div>
                       <div className="card-info">
                         <span>Name: </span> {s.name}
@@ -72,18 +68,13 @@ const Home = ({ memberList }) => {
                       <FontAwesomeIcon icon={faTrash} />
                     </button>
                   </div>
-                  <button onClick={() => deleteHandler(s)}>
-                    <FontAwesomeIcon icon={faTrash} />
-                  </button>
                 </div>
               );
             })}
-          <div className="add-member-button">
-            <button>
-              <FontAwesomeIcon icon={faPlus} />
-            </button>
-          </div>
         </div>
+        <button className="create create-logo" onClick={showAddMemberPage}>
+          <FontAwesomeIcon icon={faPlus} />
+        </button>
       </div>
     </>
   );

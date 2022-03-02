@@ -34,15 +34,20 @@
   flex-wrap: wrap;
 }
 
-.card {
+.card,
+.card-solo {
   display: flex;
   flex-direction: column;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.1);
   background: linear-gradient(to right, rgb(255, 223, 118), rgb(233, 201, 162));
-  width: 20%;
-  padding: 2vh;
+  padding: 2vh 1vw;
   margin: 1vh 1vw 2vh;
   border-radius: 15px;
+}
+
+.card-solo {
+  width: 20%;
+  margin: 1vh 0;
 }
 
 .card:hover {
@@ -51,8 +56,7 @@
 }
 
 .card-info {
-  padding: 1vh 0;
-  margin-left: 1vw;
+  padding: 1vh 2vw;
   font-size: 1.1em;
 }
 
@@ -68,23 +72,30 @@ span {
 }
 
 .create {
-  font-size: 1.3em;
-  margin: 0 2vw 5vh 0;
   align-self: flex-end;
-  padding: 2vh;
   background-color: #ffbb00;
   border-radius: 15px;
   border: none;
   font-weight: 600;
 }
 
+.create-logo {
+  font-size: 1.3em;
+  margin: 0 2vw 5vh 0;
+  padding: 2vh;
+}
+
+.create-text {
+  font-size: 1.1em;
+  margin-top: 1vh;
+  padding: 1vh;
+  width: 15vw;
+}
+
 button:hover {
   cursor: pointer;
 }
 
-.add-member-button {
-  position: fixed;
-  bottom: 5%;
-  margin-left: 90%;
-  width: 100%;
+.create-text:hover {
+  cursor: pointer;
 }
